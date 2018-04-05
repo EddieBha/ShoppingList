@@ -1,14 +1,23 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="myColor">
     <ion-title>
-      Ionic Blank
+      Inköpslista
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items">
+      <ion-item (click)="viewItem(item)">{{item.title}}</ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="secondary" (click)="shoppedItem(item)">Lägg i korg</button>
+          <button ion-button color="danger" (click)="deleteItem(item)">Ta bort</button>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+

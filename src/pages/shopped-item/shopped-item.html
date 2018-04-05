@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+      Varukorg
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of itemShopped">
+      <ion-item (click)="viewItem(item)">{{item.shoppedTitle}}</ion-item>
+      <ion-item-options side="right">
+
+        <button ion-button color="danger" (click)="shoppedDeleteItem(item)">Ta bort vara</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
